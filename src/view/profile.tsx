@@ -1,27 +1,36 @@
 import styled from "styled-components";
+import { Robot } from "../types";
 
-export const Profile = () => {
+export const Profile = ({
+    id,
+    first_name,
+    last_name,
+    email,
+    country,
+    description,
+    avatar
+}: Partial<Robot>) => {
     return (
         <Div>
             <div className="image-box">
-                {/* <img src={avatar} alt="avatar" /> */}
+                <img src={avatar} alt="avatar" />
             </div>
             <div className="details-box">
                 <h2>
-                    {/* {first_name} {last_name} */}
+                    {first_name} {last_name}
                 </h2>
                 <span className="line" />
                 <h5 className="detail">
-                    {/* id: {id} */}
+                    id: {id}
                 </h5>
                 <h5 className="detail">
-                    {/* country: {country} */}
+                    country: {country}
                 </h5>
                 <h5 className="detail">
-                    {/* email: {email} */}
+                    email: {email}
                 </h5>
                 <p>
-                    {/* {description} */}
+                    {description}
                 </p>
             </div>
         </Div>

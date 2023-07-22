@@ -4,16 +4,17 @@ import { Robot } from "../types.ts";
 
 interface ListProps {
   listData: Robot[];
+  selectItem: (item: Robot) => void;
 }
 
-export function List({ listData }: ListProps) {
+export function List({ listData, selectItem }: ListProps) {
   return (
     <Div>
       <ul>
         {listData
           .filter((item) => item.show)
           .map((item) => (
-            <li key={item.id}>
+            <li key={item.id} onClick={() => selectItem(item)}>
               <Card {...item} />
             </li>
           ))}

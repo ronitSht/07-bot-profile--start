@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { List } from "./list.tsx";
 import { Robot } from "../types.ts";
 import { Filter } from "./filter.tsx";
-// import { Profile } from "./profile.tsx";
+import { Profile } from "./profile.tsx";
 import { TopBar } from "./topBar.tsx";
 
 export function App() {
+  const [selectedProfile, setSelectedProfile] = useState<Robot>();
   const [robotsList, setRobotsList] = useState<Robot[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
@@ -40,8 +41,8 @@ export function App() {
         <>
           <Filter listData={robotsList} onFilter={setRobotsList} />
           <div className="content-box">
-            {/* <Profile /> */}
-            <List listData={robotsList} />
+            <Profile {...selectedProfile}/>
+            <List listData={robotsList} selectItem={setSelectedProfile}/>
           </div>
         </>
       )}
